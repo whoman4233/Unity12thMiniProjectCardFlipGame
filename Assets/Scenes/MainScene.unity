@@ -560,6 +560,8 @@ MonoBehaviour:
   _androidGameId: 5943757
   _iOSGameId: 5943756
   _testMode: 0
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &1826399051
 GameObject:
   m_ObjectHideFlags: 0

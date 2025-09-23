@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            firstCard.ShakeCard();
+            secondCard.ShakeCard();
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
