@@ -27,7 +27,7 @@ public class Card: MonoBehaviour
     public void Open()
     {
         audioSource.PlayOneShot(clip);
-        anim.SetBool("isOpen", true);
+        anim.SetBool("IsOpen", true);
         Front.SetActive(true);
         Back.SetActive(false);
         if (GameManager.Instance.firstCard == null)
@@ -55,7 +55,7 @@ public class Card: MonoBehaviour
     }
     void CloseCardInvoke()
     {
-        anim.SetBool("isOepn", false);
+        anim.SetBool("IsOpen", false);
         Front.SetActive(false);
         Back.SetActive(true);
     }
