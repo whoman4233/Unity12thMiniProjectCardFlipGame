@@ -73,13 +73,13 @@ public class GameManager : MonoBehaviour
         secondCard = null;
     }
 
-    public GameObject endTxt;
+    public GameObject endPanel;
     public GameObject retryBtn;
     public GameObject endingCredit;
 
     public void GameOver()
     {
-        endTxt.SetActive(true);
+        endPanel.SetActive(true);
         retryBtn.SetActive(true);
         Time.timeScale = 0.0f;
     }
