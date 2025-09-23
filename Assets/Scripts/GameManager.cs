@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if (cardCount <= 0)
             {
-                GameOver();
+                GameClear();
             }
         }
         else
@@ -75,11 +75,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject endTxt;
     public GameObject retryBtn;
+    public GameObject endingCredit;
 
     public void GameOver()
     {
-        //endTxt.SetActive(true);
+        endTxt.SetActive(true);
         retryBtn.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void GameClear()
+    {
+        endingCredit.SetActive(true);
         Time.timeScale = 0.0f;
     }
 }
