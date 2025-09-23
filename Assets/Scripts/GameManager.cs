@@ -65,10 +65,12 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject endTxt;
+    public GameObject retryBtn;
 
     public void GameOver()
     {
-        endTxt.SetActive(true);
+        //endTxt.SetActive(true);
+        retryBtn.SetActive(true);
         Time.timeScale = 0.0f;
     }
 }

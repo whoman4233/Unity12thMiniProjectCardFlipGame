@@ -9,5 +9,4 @@ public class RetryBtn : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
-
 }
