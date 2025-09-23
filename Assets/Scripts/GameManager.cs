@@ -47,8 +47,17 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             audioSource.PlayOneShot(clip);
+            if (cardCount == 2)
+            {
+                firstCard.DestroyCardInvoke();
+                secondCard.DestroyCardInvoke();
+            }
+            else
+            {
             firstCard.DestroyCard();
             secondCard.DestroyCard();
+            }
+            
             cardCount -= 2;
             if (cardCount <= 0)
             {
