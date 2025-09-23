@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         endPanel.SetActive(true);
-        retryBtn.SetActive(true);
+        ShowRetryBtn();
         Time.timeScale = 0.0f;
     }
 
@@ -88,5 +88,10 @@ public class GameManager : MonoBehaviour
     {
         endingCredit.SetActive(true);
         Time.timeScale = 0.0f;
+    }
+
+    public void ShowRetryBtn()
+    {
+        retryBtn.SetActive(true);
     }
 }
