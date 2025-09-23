@@ -9,6 +9,11 @@ public class EndingCredit : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.up * 0.5f;
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        if (rectTransform.anchoredPosition.y < 0)
+            transform.position += Vector3.up * 0.5f;
+
+        if (rectTransform.anchoredPosition.y == 0)
+            GameManager.Instance.ShowRetryBtn();
     }
 }
