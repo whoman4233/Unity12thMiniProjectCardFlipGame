@@ -1845,6 +1845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1826399054}
   clip: {fileID: 8300000, guid: f12b40d25adaba64a8fcacc117d62609, type: 3}
+  beep: {fileID: 0}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   timeTxt: {fileID: 657088652}

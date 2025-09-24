@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c7874ca4ad0f5334da6577f4598bdcd3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8125c42b326818b45848da98b208cffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CenterImage: {fileID: 88517012}
   ChickenBtn: {fileID: 128429982}
   NormalBtn: {fileID: 1541949339}
   HardBtn: {fileID: 932603982}
