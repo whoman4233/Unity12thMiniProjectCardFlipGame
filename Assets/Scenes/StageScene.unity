@@ -509,7 +509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD558\uB4DC"
+  m_Text: Unlock
 --- !u!222 &479322861
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1314,9 +1314,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterImage: {fileID: 88517012}
   ChickenBtn: {fileID: 128429982}
+  LockNormalBtan: {fileID: 0}
   NormalBtn: {fileID: 1541949339}
+  LockHardBtan: {fileID: 0}
   HardBtn: {fileID: 932603982}
   StartBtn: {fileID: 1801027789}
+  StageUnlocked: 0
   Stage: 0
 --- !u!1 &1800567130
 GameObject:
@@ -1388,7 +1391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB178\uBA40"
+  m_Text: Unlock
 --- !u!222 &1800567133
 CanvasRenderer:
   m_ObjectHideFlags: 0

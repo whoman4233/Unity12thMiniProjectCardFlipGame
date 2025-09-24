@@ -30,6 +30,16 @@ public class ChooseStage : MonoBehaviour
     void Start()
     {
         StageUnlocked = PlayerPrefs.GetInt("StageUnlocked", 1);
+        if (StageUnlocked >= 2)
+        {
+            Text NormalTxt = NormalBtn.GetComponentInChildren<Text>();
+            NormalTxt.text = "노멀";
+        }
+        if (StageUnlocked >= 3)
+        {
+            Text HardTxt = HardBtn.GetComponentInChildren<Text>();
+            HardTxt.text = "하드";
+        }
     }
 
     public void Choose(GameObject clickButton)
