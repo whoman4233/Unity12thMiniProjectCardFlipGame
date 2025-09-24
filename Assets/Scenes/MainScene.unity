@@ -1734,6 +1734,7 @@ MonoBehaviour:
   _testMode: 0
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
+<<<<<<< HEAD
 --- !u!1 &1737973423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1814,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737973423}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> DongHyunBranch
 --- !u!1 &1826399051
 GameObject:
   m_ObjectHideFlags: 0
