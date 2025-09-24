@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip clip;
+    
+    public AudioClip beep;
 
     public Card firstCard;
     public Card secondCard;
@@ -28,12 +30,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.InvokeRepeating("Onsiren", 25f, 0.9f);
     }
 
     void Update()
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+
         if (time >= 30.0f)
         {
             GameOver();
@@ -66,6 +70,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(beep);
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
