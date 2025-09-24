@@ -12,21 +12,11 @@ public class ChooseStage : MonoBehaviour
     public GameObject HardBtn;
     public GameObject StartBtn;
 
-    public int Stage = 0;
+    public int Stage = 2;
 
     private void Awake()
     {
         Instance = this;
-    }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void Choose(GameObject clickButton)
