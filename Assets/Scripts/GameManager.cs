@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip clip;
+    public AudioClip siren;
 
     public Card firstCard;
     public Card secondCard;
@@ -70,5 +71,10 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0.0f;
+    }
+
+    void Onsiren()
+    {
+        audioSource.PlayOneShot(siren);
     }
 }
