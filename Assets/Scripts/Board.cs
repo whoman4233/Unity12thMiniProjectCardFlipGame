@@ -51,7 +51,7 @@ public class Board : MonoBehaviour
 
             yTimes = -1.6f;     // ( -3.4 - 1.4 ) / (4 - 1) = -4.8 / 3
             yMinus = -1.4f;     // -yTop
-            size = new Vector3(1.2f, 1.2f, 1.2f);
+            size = new Vector3(1.0f, 1.0f, 1.0f);
         }
         else if (stage == 2)
         {
@@ -74,7 +74,7 @@ public class Board : MonoBehaviour
 
             yTimes = -1.04f;       // ( -3.6 - 1.6 ) / (6-1) = -5.2 / 5
             yMinus = -1.6f;        // -yTop
-            size = new Vector3(1.0f, 1.0f, 1.0f);
+            size = new Vector3(0.8f, 0.8f, 0.8f);
         }
         else if (stage == 3)
         {
@@ -102,7 +102,7 @@ public class Board : MonoBehaviour
             yTimes = -1.12f;  // (-3.9 - 1.9) / (6-1)
             xMinus = 2.2f;    // -xMin
             yMinus = -1.8f;   // -yTop
-            size = new Vector3(0.8f, 0.8f, 0.8f);
+            size = new Vector3(0.6f, 0.6f, 0.6f);
         }
 
         yield return new WaitForSeconds(delay);
