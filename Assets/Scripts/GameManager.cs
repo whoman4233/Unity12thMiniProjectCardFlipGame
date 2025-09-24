@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     void Awake()
     {
         if (Instance == null)
@@ -34,14 +35,15 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+
         if (time >= 30.0f)
         {
             GameOver();
         }
     }
 
-
     public int cardCount = 0;
+
     public void isMatched()
     {
         if (firstCard.idx == secondCard.idx)
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
+
             if (cardCount <= 0)
             {
                 GameOver();
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
+
         firstCard = null;
         secondCard = null;
     }

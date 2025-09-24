@@ -30,6 +30,7 @@ public class Card: MonoBehaviour
         anim.SetBool("isOpen", true);
         Front.SetActive(true);
         Back.SetActive(false);
+
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
