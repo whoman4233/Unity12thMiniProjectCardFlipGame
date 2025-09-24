@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     void Awake()
     {
         if (Instance == null)
@@ -44,8 +45,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public int cardCount = 0;
+
     public void isMatched()
     {
         if (firstCard.idx == secondCard.idx)
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
             }
             
             cardCount -= 2;
+
             if (cardCount <= 0)
             {
                 GameClear();
@@ -71,9 +73,12 @@ public class GameManager : MonoBehaviour
         else
         {
             audioSource.PlayOneShot(beep);
+            firstCard.ShakeCard();
+            secondCard.ShakeCard();
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
+
         firstCard = null;
         secondCard = null;
     }
