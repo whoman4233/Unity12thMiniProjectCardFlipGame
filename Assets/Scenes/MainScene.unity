@@ -560,6 +560,8 @@ MonoBehaviour:
   _androidGameId: 5943757
   _iOSGameId: 5943756
   _testMode: 0
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &1826399051
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1826399054}
   clip: {fileID: 8300000, guid: f12b40d25adaba64a8fcacc117d62609, type: 3}
+  siren: {fileID: 8300000, guid: 63c4655ac0ee3d746b543e6866cebf16, type: 3}
+  beep: {fileID: 8300000, guid: 00f4561197d0186418bf76333893db03, type: 3}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   timeTxt: {fileID: 657088652}

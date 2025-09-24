@@ -30,13 +30,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        InvokeRepeating("Onsiren", 25f, 0.9f);
     }
 
     void Update()
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
-        InvokeRepeating("Onsiren", 25f, 0.9f);
 
         if (time >= 30.0f)
         {
