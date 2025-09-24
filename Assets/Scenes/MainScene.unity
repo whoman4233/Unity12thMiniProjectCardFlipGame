@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: {fileID: 479159396}
-  card: {fileID: 9054555253579960781, guid: 0a18c3a182ffb78478b28ca5ba65bfe6, type: 3}
+  card: {fileID: 796734247125586332, guid: f7d3fe27f71a5b148bebd0d695169e9d, type: 3}
   scatterPosition: {x: 0, y: 0, z: 0}
   xTimes: 0
   yTimes: 0
