@@ -10,42 +10,82 @@ public class ChooseStage : MonoBehaviour
     public Image CenterImage;
 
     public GameObject ChickenBtn;
+
+    public GameObject LockNormalBtan;
     public GameObject NormalBtn;
+    public GameObject LockHardBtan;
     public GameObject HardBtn;
 
     public GameObject StartBtn;
 
-    public int Stage = 2;
+    public int StageUnlocked = 0;
+
+    public int Stage = 1;
 
     private void Awake()
     {
         Instance = this;
     }
 
+    void Start()
+    {
+        StageUnlocked = PlayerPrefs.GetInt("StageUnlocked", 1);
+    }
+
     public void Choose(GameObject clickButton)
     {
-        if (!StartBtn.activeSelf)
+        switch (clickButton.name)
         {
-            StartBtn.SetActive(true);
-        }
+            case "EasyBtn":
+                CenterImage.sprite = Resources.Load<Sprite>("membercard2");
+                Stage = 1;
+                if (!StartBtn.activeSelf) //만약 시작하기 버튼이 활성화가 안 되어있으면 활성화 시켜줌
+                {
+                    StartBtn.SetActive(true);
+                }
+                break;
 
-        if (clickButton.name == "EasyBtn")
-        {
-            Debug.Log("Chicken");
-            CenterImage.sprite = Resources.Load<Sprite>("membercard2");
-            Stage = 1;
-        }
-        else if (clickButton.name == "NormalBtn")
-        {
-            Debug.Log("Normal");
-            CenterImage.sprite = Resources.Load<Sprite>("membercard8");
-            Stage = 2;
-        }
-        else
-        {
-            Debug.Log("Hard");
-            CenterImage.sprite = Resources.Load<Sprite>("membercard10");
-            Stage = 3;
+            case "NormalBtn":
+                CenterImage.sprite = Resources.Load<Sprite>("membercard8");
+
+                if (StageUnlocked >= 2)
+                {
+                    Stage = 2;
+
+                    if (!StartBtn.activeSelf) //만약 시작하기 버튼이 활성화가 안 되어있으면 활성화 시켜줌
+                    {
+                        StartBtn.SetActive(true);
+                    }
+                }
+                else
+                {
+                    if (StartBtn.activeSelf)//만약 활성화가 되어 있으면 비활성화 시켜 시작을 막음
+                    {
+                        StartBtn.SetActive(false);
+                    }
+                    Debug.Log(StageUnlocked);
+                }
+                break;
+
+            case "HardBtn":
+                CenterImage.sprite = Resources.Load<Sprite>("membercard10");
+
+                if (StageUnlocked >= 3)
+                {
+                    Stage = 3;
+                    if (!StartBtn.activeSelf) //만약 시작하기 버튼이 활성화가 안 되어있으면 활성화 시켜줌
+                    {
+                        StartBtn.SetActive(true);
+                    }
+                }
+                else
+                {
+                    if (StartBtn.activeSelf)//만약 활성화가 되어 있으면 비활성화 시켜 시작을 막음
+                    {
+                        StartBtn.SetActive(false);
+                    }
+                }
+                break;
         }
     }
 }

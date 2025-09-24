@@ -30,6 +30,7 @@ public class Card : MonoBehaviour
         anim.SetBool("IsOpen", true);
         Front.SetActive(true);
         Back.SetActive(false);
+
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
@@ -58,5 +59,28 @@ public class Card : MonoBehaviour
         anim.SetBool("isOpen", false);
         Front.SetActive(false);
         Back.SetActive(true);
+    }
+
+    public void ShakeCard()
+    {
+        StartCoroutine(ShakeCardAnim());
+    }
+
+    IEnumerator ShakeCardAnim()
+    {
+        Vector3 originalPos = transform.localPosition;
+        float time = 0f;
+        float duration = 0.3f;
+        float shakeAmount = 0.1f;
+        float frequency = 50f;
+
+        while (time < duration)
+        {
+            float offest = Mathf.Sin(time * frequency) * shakeAmount;
+            transform.localPosition = originalPos + new Vector3(offest, 0f, 0f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = originalPos;
     }
 }
