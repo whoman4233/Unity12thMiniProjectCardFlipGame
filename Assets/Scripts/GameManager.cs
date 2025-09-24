@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        cardCount = 16;
+
     }
 
     void Update()

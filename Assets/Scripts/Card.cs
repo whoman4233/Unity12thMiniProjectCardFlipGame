@@ -27,7 +27,7 @@ public class Card: MonoBehaviour
     public void Open()
     {
         audioSource.PlayOneShot(clip);
-        anim.SetBool("isOpen", true);
+        anim.SetBool("IsOpen", true);
         Front.SetActive(true);
         Back.SetActive(false);
 
