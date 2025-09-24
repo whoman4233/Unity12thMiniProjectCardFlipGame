@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card: MonoBehaviour
+public class Card : MonoBehaviour
 {
     public int idx = 0;
     public SpriteRenderer frontImage;
@@ -16,7 +16,7 @@ public class Card: MonoBehaviour
     public void Settings(int numbs)
     {
         idx = numbs;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"membercard{idx}");
     }
 
     private void Start()

@@ -15,14 +15,15 @@ public class Board : MonoBehaviour
 
         if (ChooseStage.Instance.Stage == 1)
         {
-            Debug.Log("Easy");
-            int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
-            arr = arr.OrderBy(x => Random.Range(0f, 7f)).ToArray();
-            for (int i = 0; i < 16; i++)
+            Debug.Log("EasyStage");
+            int[] arr = { 0, 0, 3, 3, 6, 6, 9, 9, 12, 12, 15, 15 };
+            arr = arr.OrderBy(x => Random.Range(0f, arr.Length)).ToArray();
+            for (int i = 0; i < 12; i++)
             {
                 GameObject go = Instantiate(card, this.transform);
-                float x = (i / 4) * 1.4f - 2.1f;
+                float x = (i / 4) * 1.4f - 1.4f;
                 float y = (i % 4) * 1.4f - 3.0f;
+
                 go.transform.position = new Vector2(x, y);
                 go.GetComponent<Card>().Settings(arr[i]);
             }
@@ -31,7 +32,7 @@ public class Board : MonoBehaviour
         }
         else if (ChooseStage.Instance.Stage == 2)
         {
-            Debug.Log("Normal");
+            Debug.Log("NormalStage");
         }
         else if (ChooseStage.Instance.Stage == 3)
         {
