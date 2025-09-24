@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip clip;
     public AudioClip siren;
+    public AudioClip beep;
 
     public Card firstCard;
     public Card secondCard;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(beep);
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
