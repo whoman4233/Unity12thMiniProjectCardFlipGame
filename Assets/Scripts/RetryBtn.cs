@@ -12,6 +12,11 @@ public class RetryBtn : MonoBehaviour
     }
     public void Retry()
     {
+        SceneManager.LoadScene("StartScene");
+    }
+    public void StartGameBtn()
+    {
         SceneManager.LoadScene("MainScene");
     }
+
 }

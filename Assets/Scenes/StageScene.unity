@@ -1411,7 +1411,6 @@ GameObject:
   - component: {fileID: 1801027794}
   - component: {fileID: 1801027793}
   - component: {fileID: 1801027792}
-  - component: {fileID: 1801027791}
   m_Layer: 5
   m_Name: StartBtn
   m_TagString: Untagged
@@ -1439,18 +1438,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -520}
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1801027791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801027789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6359a2e37bbdd914787bc2ad1c4ab8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1801027792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,7 +1526,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1801027793}
         m_TargetAssemblyTypeName: RetryBtn, Assembly-CSharp
-        m_MethodName: Retry
+        m_MethodName: StartGameBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
