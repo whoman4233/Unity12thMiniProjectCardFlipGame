@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using UnityEngine;
 
 public class Board : MonoBehaviour
@@ -8,12 +9,21 @@ public class Board : MonoBehaviour
     public Transform cards;
     public GameObject card;
     public Vector3 scatterPosition = Vector3.zero;
-    public int rows = 4;
-    public int cols = 4;
-    public float spacing = 1.4f;
+    public float xTimes;
+    public float yTimes;
+    public float xMinus;
+    public float yMinus;
+    public Vector3 size;
+    public float a;
     public float moveDuration = 1f;
 
     void Start()
+    {
+        xTimes = 0; yTimes = 0; xMinus = 0; yMinus = 0; size = Vector3.zero;
+        StartCoroutine(ScatterCardsAfterDelay(0.5f));
+    }
+
+    IEnumerator ScatterCardsAfterDelay(float delay)
     {
         int stageNum = ChooseStage.Instance.Stage;
 
@@ -25,15 +35,16 @@ public class Board : MonoBehaviour
             for (int i = 0; i < 12; i++)
             {
                 GameObject go = Instantiate(card, this.transform);
-                float x = (i / 4) * 1.4f - 1.4f;
-                float y = (i % 4) * 1.4f - 3.0f;
-
-                go.transform.position = new Vector2(x, y);
+                go.transform.localPosition = scatterPosition;
                 go.GetComponent<Card>().Settings(arr[i]);
             }
-
             GameManager.Instance.cardCount = arr.Length;
-            StartCoroutine(ScatterCardsAfterDelay(0.5f));
+            xTimes = 1.4f;
+            yTimes = 1.4f;
+            xMinus = 1.4f;
+            yMinus = 3.0f;
+            a = 4f;
+            size = new Vector3(1.2f, 1.2f, 1.2f);
         }
         else if (ChooseStage.Instance.Stage == 2)
         {
@@ -43,20 +54,17 @@ public class Board : MonoBehaviour
 
             for (int i = 0; i < 24; i++)
             {
-
                 GameObject go = Instantiate(card, this.transform);
-
-                go.transform.localScale = new Vector3(1f, 1f, 1f); //카드 크기 수정
-
-                float x = (i / 6) * 1.3f - 1.9f;
-                float y = (i % 6) * 1.25f - 4.2f;
-
-                go.transform.position = new Vector2(x, y);
-
+                go.transform.localPosition = scatterPosition;
                 go.GetComponent<Card>().Settings(arr[i]);
             }
             GameManager.Instance.cardCount = arr.Length;
-            StartCoroutine(ScatterCardsAfterDelay(0.5f));
+            xTimes = 1.3f;
+            yTimes = 1.25f;
+            xMinus = 1.9f;
+            yMinus = 4.2f;
+            a = 6f;
+            size = new Vector3(1.0f, 1.0f, 1.0f);
         }
         else if (ChooseStage.Instance.Stage == 3)
         {
@@ -69,53 +77,57 @@ public class Board : MonoBehaviour
                 Debug.Log("HardStage");
 
                 GameObject go = Instantiate(card, this.transform);
-
-                go.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f); //카드 크기 수정
-
-                float x = (i / 6) * 0.95f - 2.35f;
-                float y = (i % 6) * 1.05f - 3.9f;
-
-                go.transform.position = new Vector2(x, y);
-
+                go.transform.localPosition = scatterPosition;
                 go.GetComponent<Card>().Settings(arr[i]);
             }
             GameManager.Instance.cardCount = arr.Length;
-            StartCoroutine(ScatterCardsAfterDelay(0.5f));
-        }
-        IEnumerator ScatterCardsAfterDelay(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-
-            Vector3 startPos = new Vector3(-(cols - 1) * spacing / 2f, (rows - 1) * spacing / 2f, 0);
-
-            int i = 0;
-            foreach (Transform c in cards)
-            {
-                int row = i / cols;
-                int col = i % cols;
-
-                Vector3 targetPos = startPos + new Vector3(col * spacing, -row * spacing, 0);
-                StartCoroutine(MoveCard(c, targetPos, moveDuration));
-                i++;
-            }
+            xTimes = 0.95f;
+            yTimes = 1.05f;
+            xMinus = 2.35f;
+            yMinus = 3.9f;
+            a = 6f;
+            size = new Vector3(0.8f, 0.8f, 0.8f);
         }
 
-        IEnumerator MoveCard(Transform cardTransform, Vector3 targetLocalPos, float duration)
+        yield return new WaitForSeconds(delay);
+
+
+        int v = 0;
+        int cols = Mathf.RoundToInt(a);   
+        foreach (Transform c in cards)
         {
-            if (cardTransform == null) yield break;
+            int col = v / cols;           
+            int row = v % cols;           
 
-            Vector3 start = cardTransform.localPosition;
-            float t = 0f;
-            float safeDuration = Mathf.Max(0.0001f, duration);
+            float x = col * xTimes - xMinus;
+            float y = row * yTimes - yMinus;
 
-            while (t < 1f)
-            {
-                t += Time.deltaTime / safeDuration;
-                cardTransform.localPosition = Vector3.Lerp(start, targetLocalPos, t);
-                yield return null;
-            }
-
-            cardTransform.localPosition = targetLocalPos;
+            Vector3 targetPos = new Vector3(x, y, 0f);
+            c.localScale = size;
+            StartCoroutine(MoveCard(c, targetPos, moveDuration));
+            v++;
         }
     }
+
+
+
+    IEnumerator MoveCard(Transform cardTransform, Vector3 targetLocalPos, float duration)
+    {
+        if (cardTransform == null) yield break;
+
+        Vector3 start = cardTransform.localPosition;
+        float t = 0f;
+        float safeDuration = Mathf.Max(0.0001f, duration);
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / safeDuration;
+            cardTransform.localPosition = Vector3.Lerp(start, targetLocalPos, t);
+            yield return null;
+        }
+
+        cardTransform.localPosition = targetLocalPos;
+    }
+
+
 }
