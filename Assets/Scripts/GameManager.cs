@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip clip;
-    public AudioClip siren;
+    
     public AudioClip beep;
 
     public Card firstCard;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        InvokeRepeating("Onsiren", 25f, 0.9f);
+        AudioManager.Instance.InvokeRepeating("Onsiren", 25f, 0.9f);
     }
 
     void Update()
@@ -77,8 +77,4 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
     }
 
-    void Onsiren()
-    {
-        audioSource.PlayOneShot(siren);
-    }
 }

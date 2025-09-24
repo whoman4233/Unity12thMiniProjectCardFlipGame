@@ -664,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1190468720}
   clip: {fileID: 8300000, guid: 34a22994de548d646b02e64c28565bec, type: 3}
+  siren: {fileID: 8300000, guid: 63c4655ac0ee3d746b543e6866cebf16, type: 3}
 --- !u!4 &1190468722
 Transform:
   m_ObjectHideFlags: 0
