@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
     public void Onsiren()
     {
-        audioSource.PlayOneShot(siren);
+        audioSource.PlayOneShot(siren,0.7f);
     }
 }
 
