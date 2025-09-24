@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+        InvokeRepeating("Onsiren", 25f, 0.9f);
+
         if (time >= 30.0f)
         {
             GameOver();
