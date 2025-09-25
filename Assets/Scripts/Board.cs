@@ -105,6 +105,31 @@ public class Board : MonoBehaviour
             size = new Vector3(0.6f, 0.6f, 0.6f);
         }
 
+        else if (stage == 99) //Hidden
+        {
+            int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
+            arr = arr.OrderBy(x => Random.Range(0f, 7f)).ToArray();
+
+            for (int i = 0; i < 16; i++)
+            {
+                GameObject go = Instantiate(card, cards);
+                go.transform.localPosition = scatterPosition;
+                var cardComp = go.GetComponentInChildren<Card>(true);
+                if (cardComp) cardComp.Settings(arr[i]);
+
+            }
+            GameManager.Instance.cardCount = arr.Length;
+
+            a = 4f;
+            xTimes = 1.4f;      // ( 1.8 - (-1.8) ) / (3 - 1) = 3.6 / 2
+            xMinus = 2.05f;      // -xMin
+
+            yTimes = -1.6f;     // ( -3.4 - 1.4 ) / (4 - 1) = -4.8 / 3
+            yMinus = -1.4f;     // -yTop
+            size = new Vector3(0.9f, 0.9f, 0.9f);
+
+        }
+
         yield return new WaitForSeconds(delay);
 
         int v = 0;
