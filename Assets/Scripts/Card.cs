@@ -27,9 +27,9 @@ public class Card : MonoBehaviour
     public void Open()
     {
         audioSource.PlayOneShot(clip);
+
+
         anim.SetBool("IsOpen", true);
-        Front.SetActive(true);
-        Back.SetActive(false);
 
         if (GameManager.Instance.firstCard == null)
         {
@@ -40,6 +40,12 @@ public class Card : MonoBehaviour
             GameManager.Instance.secondCard = this;
             GameManager.Instance.isMatched();
         }
+    }
+
+    public void ShowFront()
+    {
+        Back.SetActive(false);
+        Front.SetActive(true);
     }
 
     public void DestroyCard()
@@ -68,20 +74,20 @@ public class Card : MonoBehaviour
 
     IEnumerator ShakeCardAnim()
     {
-        Vector3 originalPos = transform.localPosition; // OK: ���� ����
+        Vector3 originPos = transform.localPosition;
         float time = 0f;
-        float duration = 0.3f;
+        float duration = 0.4f;
         float shakeAmount = 0.1f;
         float frequency = 50f;
 
         while (time < duration)
         {
             float offset = Mathf.Sin(time * frequency) * shakeAmount;
-            transform.localPosition = originalPos + new Vector3(offset, 0f, 0f); // ���÷� ����
+            transform.localPosition = originPos + new Vector3(offset, 0f, 0f);
             time += Time.deltaTime;
             yield return null;
         }
-        transform.localPosition = originalPos; // �� �������� ���÷� ����
+        transform.localPosition = originPos;
     }
 
 }
