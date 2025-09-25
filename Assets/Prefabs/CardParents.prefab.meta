@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Prefabs/CardParents.prefab.meta
 guid: f7d3fe27f71a5b148bebd0d695169e9d
+=======
+guid: e67b2dfcd1255cc4fb6ad6e12329fbb6
+>>>>>>> Stashed changes:Assets/Prefabs/Card.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

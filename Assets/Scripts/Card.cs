@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,10 +27,12 @@ public class Card : MonoBehaviour
     public void Open()
     {
         audioSource.PlayOneShot(clip);
-        anim.SetBool("IsOpen", true);
+
         Front.SetActive(true);
         Back.SetActive(false);
+        anim.SetBool("IsOpen", true);
 
+        
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
@@ -50,17 +52,17 @@ public class Card : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public void CloseCardInvoke()
+    {
+        Front.SetActive(false);
+        Back.SetActive(true);
+        anim.SetBool("IsOpen", false);
+    }
+
     public void CloseCard()
     {
         Invoke("CloseCardInvoke", 0.5f);
     }
-    void CloseCardInvoke()
-    {
-        anim.SetBool("isOpen", false);
-        Front.SetActive(false);
-        Back.SetActive(true);
-    }
-
     public void ShakeCard()
     {
         StartCoroutine(ShakeCardAnim());
