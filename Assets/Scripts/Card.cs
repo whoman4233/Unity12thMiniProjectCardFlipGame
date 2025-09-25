@@ -70,7 +70,7 @@ public class Card : MonoBehaviour
 
     IEnumerator ShakeCardAnim()
     {
-        Vector3 originalPos = transform.localPosition; // OK: ·ÎÄÃ ÀúÀå
+        Vector3 originalPos = transform.localPosition; // OK: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         float time = 0f;
         float duration = 0.3f;
         float shakeAmount = 0.1f;
@@ -79,11 +79,11 @@ public class Card : MonoBehaviour
         while (time < duration)
         {
             float offset = Mathf.Sin(time * frequency) * shakeAmount;
-            transform.localPosition = originalPos + new Vector3(offset, 0f, 0f); // ·ÎÄÃ·Î Èçµé±â
+            transform.localPosition = originalPos + new Vector3(offset, 0f, 0f); // ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½
             time += Time.deltaTime;
             yield return null;
         }
-        transform.localPosition = originalPos; // ¡Ú ¸¶Áö¸·µµ ·ÎÄÃ·Î º¹±¸
+        transform.localPosition = originalPos; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 }
