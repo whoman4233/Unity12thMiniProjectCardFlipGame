@@ -36,7 +36,6 @@ public class Card : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
 
-
         anim.SetBool("IsOpen", true);
 
         if (GameManager.Instance.firstCard == null)
@@ -45,8 +44,11 @@ public class Card : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.secondCard = this;
-            GameManager.Instance.isMatched();
+            if(GameManager.Instance.firstCard.transform.position != this.gameObject.transform.position)
+            {
+                GameManager.Instance.secondCard = this;
+                GameManager.Instance.isMatched();
+            }
         }
     }
 

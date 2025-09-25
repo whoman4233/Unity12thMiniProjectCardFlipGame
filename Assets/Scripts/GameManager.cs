@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     public Text timeTxt;
     float time = 0.0f;
+    // ★ 매칭 처리 중 입력 잠금 플래그
+    public bool IsResolvingPair { get; private set; }
+
 
     private void Start()
     {
