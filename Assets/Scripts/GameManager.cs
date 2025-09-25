@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip clip;
-    
+
     public AudioClip beep;
 
     public Card firstCard;
@@ -60,10 +60,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-            firstCard.DestroyCard();
-            secondCard.DestroyCard();
+                firstCard.DestroyCard();
+                secondCard.DestroyCard();
             }
-            
+
             cardCount -= 2;
 
             if (cardCount <= 0)
@@ -97,6 +97,18 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        if (ChooseStage.Instance.StageUnlocked == 1)
+        {
+            Debug.Log(ChooseStage.Instance.StageUnlocked);
+            PlayerPrefs.SetInt("StageUnlocked", 2);
+            PlayerPrefs.Save();
+        }
+        else if (ChooseStage.Instance.StageUnlocked == 2)
+        {
+            PlayerPrefs.SetInt("StageUnlocked", 3);
+            PlayerPrefs.Save();
+        }
+        Debug.Log(ChooseStage.Instance.StageUnlocked);
         endingCredit.SetActive(true);
         Time.timeScale = 0.0f;
     }

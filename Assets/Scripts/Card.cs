@@ -16,7 +16,15 @@ public class Card : MonoBehaviour
     public void Settings(int numbs)
     {
         idx = numbs;
-        frontImage.sprite = Resources.Load<Sprite>($"membercard{idx}");
+
+        if (ChooseStage.Instance.Stage <= 3)
+        {
+            frontImage.sprite = Resources.Load<Sprite>($"membercard{idx}");
+        }
+        else if (ChooseStage.Instance.Stage == 99) //Hidden
+        {
+            frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        }
     }
 
     private void Start()
