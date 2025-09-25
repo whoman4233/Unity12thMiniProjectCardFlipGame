@@ -28,8 +28,8 @@ public class AudioManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = this.clip;
+        audioSource.loop = true;
         audioSource.Play();
-        
     }
 
     public void Onsiren()
