@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.CancelInvoke("Onsiren");
         AudioManager.Instance.InvokeRepeating("Onsiren", 25f, 0.9f);
     }
 
