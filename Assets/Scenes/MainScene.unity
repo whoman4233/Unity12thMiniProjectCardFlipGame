@@ -868,11 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: {fileID: 479159396}
-<<<<<<< Updated upstream
   card: {fileID: 796734247125586332, guid: f7d3fe27f71a5b148bebd0d695169e9d, type: 3}
-=======
-  card: {fileID: 4998564757651534548, guid: e67b2dfcd1255cc4fb6ad6e12329fbb6, type: 3}
->>>>>>> Stashed changes
   scatterPosition: {x: 0, y: 0, z: 0}
   xTimes: 0
   yTimes: 0
@@ -2872,12 +2868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7236680725f2934798294cba2816c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
   _adUnitId: 
-=======
->>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

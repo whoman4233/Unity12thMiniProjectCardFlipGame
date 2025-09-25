@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip clip;
-
+    
     public AudioClip beep;
 
     public Card firstCard;
@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
 
     public Text timeTxt;
     float time = 0.0f;
-
-    public int cardCount = 0;
 
     private void Start()
     {
@@ -47,9 +45,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int cardCount = 0;
 
-
-       public void isMatched()
+    public void isMatched()
     {
         if (firstCard.idx == secondCard.idx)
         {
