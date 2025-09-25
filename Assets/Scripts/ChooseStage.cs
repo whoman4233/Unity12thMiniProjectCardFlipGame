@@ -35,8 +35,6 @@ public class ChooseStage : MonoBehaviour
     {
         Image spriteName = CenterImage.GetComponent<Image>();
 
-        Debug.Log(spriteName.sprite.name);
-
         if (clickButton.name == "StageImage" && spriteName.sprite.name == "membercard7")
         {
             Debug.Log("test");
@@ -77,10 +75,10 @@ public class ChooseStage : MonoBehaviour
                     }
                     else
                     {
-                        StartBtn.SetActive(false);
+                        LockTxt.SetActive(true);
                         if (StartBtn.activeSelf)//만약 활성화가 되어 있으면 비활성화 시켜 시작을 막음
                         {
-                            LockTxt.SetActive(true);
+                            StartBtn.SetActive(false);
                         }
                         Invoke("HideLockTxt", 1f);
                     }
