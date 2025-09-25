@@ -62,7 +62,7 @@ public class Card : MonoBehaviour
     }
     void CloseCardInvoke()
     {
-        anim.SetBool("isOpen", false);
+        anim.SetBool("IsOpen", false);
         Front.SetActive(false);
         Back.SetActive(true);
     }
