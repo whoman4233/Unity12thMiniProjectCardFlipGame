@@ -874,8 +874,8 @@ MonoBehaviour:
   yTimes: 0
   xMinus: 0
   yMinus: 0
-  size: {x: 0, y: 0, z: 0}
   a: 0
+  size: {x: 0, y: 0, z: 0}
   moveDuration: 1
 --- !u!1 &519420028
 GameObject:
